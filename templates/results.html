@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="card shadow-lg p-4">
+    <h2 class="fw-bold text-success">📊 Resume Screening Results</h2>
+
+    <table class="table table-hover table-bordered align-middle mt-3">
+        <thead class="table-dark">
+            <tr>
+                <th>Rank</th>
+                <th>Resume</th>
+                <th>Match Score</th>
+                <th>Top Skills</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in tables %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ row['Resume'] }}</td>
+                <td><span class="badge bg-primary fs-6">{{ row['Score'] }}%</span></td>
+                <td>{{ row['Top Skills'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="mt-4 d-flex justify-content-between">
+        <a href="{{ url_for('index') }}" class="btn btn-secondary btn-lg">⬅ Back</a>
+        <a href="{{ url_for('download') }}" class="btn btn-success btn-lg">📥 Download CSV</a>
+    </div>
+</div>
+
+{% endblock %}
