@@ -1,5 +1,6 @@
-Flask
-PyPDF2
+streamlit
 pandas
+PyPDF2
 sentence-transformers
-gunicorn
+torch
+
